@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "publications",
+            "otherEntityName": "publication",
+            "otherEntityRelationshipName": "user"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170506090703",
+    "entityTableName": "j_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

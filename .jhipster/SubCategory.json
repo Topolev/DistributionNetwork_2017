@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "subCategories",
+            "relationshipName": "publications",
+            "otherEntityName": "publication",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "category",
+            "otherEntityName": "category",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170506090706",
+    "entityTableName": "sub_category",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,45 @@
+
+<div *ngIf="publication">
+    <h2><span jhiTranslate="distributionNetworkApp.publication.detail.title">Publication</span> {{publication.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="distributionNetworkApp.publication.name">Name</span></dt>
+        <dd>
+            <span>{{publication.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="distributionNetworkApp.publication.text">Text</span></dt>
+        <dd>
+            <span>{{publication.text}}</span>
+        </dd>
+        <dt><span jhiTranslate="distributionNetworkApp.publication.createdDate">Created Date</span></dt>
+        <dd>
+            <span>{{publication.createdDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="distributionNetworkApp.publication.labels">Labels</span></dt>
+        <dd>
+            <span *ngFor="let labels of publication.labels; let last = last">
+                <a [routerLink]="['/label', labels?.id ]">{{labels.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="distributionNetworkApp.publication.user">User</span></dt>
+        <dd>
+            <div *ngIf="publication.user">
+                <a [routerLink]="['/j-user', publication.user?.id]">{{publication.user?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'publication/'+ publication.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
