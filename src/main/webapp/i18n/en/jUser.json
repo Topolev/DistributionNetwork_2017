@@ -1,0 +1,23 @@
+{
+    "distributionNetworkApp": {
+        "jUser" : {
+            "home": {
+                "title": "J Users",
+                "createLabel": "Create a new J User",
+                "createOrEditLabel": "Create or edit a J User",
+                "search": "Search for J User"
+            },
+            "created": "A new J User is created with identifier {{ param }}",
+            "updated": "A J User is updated with identifier {{ param }}",
+            "deleted": "A J User is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete J User {{ id }}?"
+            },
+            "detail": {
+                "title": "J User"
+            },
+            "name": "Name",
+            "publications": "Publications"
+        }
+    }
+}

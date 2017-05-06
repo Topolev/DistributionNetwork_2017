@@ -1,0 +1,40 @@
+
+
+entity JUser{
+    name String
+}
+entity Publication {
+    name String required,
+    text String required,
+    createdDate ZonedDateTime
+}
+
+entity Category{
+    name String required
+}
+entity SubCategory{
+    name String required
+}
+
+entity Label{
+    name String required
+}
+
+
+
+relationship OneToMany{
+	Category{subCategories} to SubCategory{category}
+}
+
+relationship OneToMany{
+	JUser{publications} to Publication{user}
+}
+
+relationship ManyToMany {
+	Publication{labels} to Label{publications}
+}
+
+relationship ManyToMany {
+	SubCategory{publications} to Publication{subCategories}
+}
+
