@@ -19,10 +19,52 @@
 /* ==============================================================
 Bootstrap tweaks
 ===============================================================*/
-
+html{
+    height:100%;
+}
 body, h1, h2, h3, h4 {
     font-weight: 300;
+    height:100%;
 }
+
+
+/*=================================================================
+HOME SLIDER
+ */
+.home {
+    height: 100%;
+    &__slider {
+        height: 100%;
+        width: 100%;
+
+        .carousel-inner {
+            height: 100%;
+            width: 100%;
+        }
+        .carousel-item {
+            height: 100%;
+            width: 100%;
+            position:relative;
+        }
+    }
+
+    &__slide {
+        height: 100%;
+    }
+
+    &__slide-back{
+        display:block;
+        width:100%;
+        height: 100%;
+        position:absolute;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+
+
 
 
 /* ==========================================================================
