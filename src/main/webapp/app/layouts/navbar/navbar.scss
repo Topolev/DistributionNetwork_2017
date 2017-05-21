@@ -1,70 +1,168 @@
+@import '../../../../../../node_modules/bootstrap/scss/variables';
+@import "../../../content/scss/custom_variables";
 
-/* ==========================================================================
-Navbar
-========================================================================== */
-.navbar-version {
-    font-size: 10px;
-    color: #ccc
-}
+.header {
+    background: $color-dark-gray;
+    font-family: Oswald;
 
-.jh-navbar {
-    background-color: #353d47;
-    padding: .2em 1em;
-    .profile-image {
-        margin: -10px 0px;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
+    &__container {
+        display: flex;
+        align-items: center;
     }
-    .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
-        background-color: #353d47;
-    }
-    .dropdown-toggle::after {
-        margin-left: 0.15em;
-    }
-    ul.navbar-nav {
-        padding: 0.5em;
-        .nav-item {
-            margin-left: 1.5rem;
-        }
-    }
-    a.nav-link {
-        font-weight: 400;
-    }
-    .jh-navbar-toggler {
-        color: #ccc;
-        font-size: 1.5em;
-        padding: 10px;
-        &:hover {
-            color: #fff;
-        }
-    }
-}
 
-@media screen and (max-width: 992px) {
-    .jh-logo-container {
+    &__logo {
+        padding: $padding;
+    }
+
+    &__toggle-button {
+        display: none;
+    }
+
+    &__nav {
         width: 100%;
+        display: flex;
+        justify-content: flex-end;
     }
-}
+    &__link {
+        color: $color-light-gray;
+        line-height: 80px;
+        padding: $padding;
+    }
+    &__login {
+        border-left: 1px solid #d4d4d4;
+        border-right: 1px solid #d4d4d4;
+    }
+    @media(max-width: #{map-get($grid-breakpoints, lg)}) {
+        &__container {
+            display: block;
+            align-items: center;
+        }
+        &__toggle-button {
+            display: block;
+            position: absolute;
+            top: 20px;
+            left:25px;
+            font-size: 24px;
+        }
+        &__logo {
+            justify-content: center;
+        }
+        &__nav{
+            position:relative;
+            max-height:0;
+            display: block;
+            transition: max-height 0.5s;
+        }
+        &__nav:before{
+            content:"";
+            display:block;
+            position:relative;
+            height:1px;
+            background: #d4d4d4;
+        }
+        &__nav_show{
+            max-height:690px;
 
-.navbar-title {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* ==========================================================================
-Logo styles
-========================================================================== */
-.navbar-brand {
-    &.logo {
-        padding: 5px 15px;
-        .logo-img {
-            height: 45px;
-            width: 70px;
-            display: inline-block;
-            vertical-align: middle;
-            background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
-            background-size: contain;
+        }
+        &__link {
+            line-height: 40px;
+            padding:0 15px;
+            display: block;
+        }
+        &__login {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            border: none;
         }
     }
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    &__image {
+        max-width: 50px;
+        vertical-align: bottom;
+    }
+    &__text-first-word {
+        display: inline-block;
+        color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+        margin: 0;
+        padding-left: $padding-small;
+    }
+    &__text-second-word {
+        color: #B9B9B9;
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0;
+    }
+    @media(max-width: #{map-get($grid-breakpoints, md)}) {
+        &__text-first-word {
+            display: none;
+        }
+        &__text-second-word {
+            display: none;
+        }
+    }
+
+}
+
+.nav {
+    &__items {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        display: inline-block;
+    }
+    @media(max-width: #{map-get($grid-breakpoints, lg)}) {
+        &__item {
+            display: block;
+        }
+    }
+}
+
+.search-panel {
+    &__button-show-form {
+        max-width: 15px;
+        overflow: hidden;
+        transition: max-width 0.5s;
+    }
+    &__form {
+        overflow: hidden;
+        transition: max-width 0.5s;
+    }
+
+    &_show-form {
+        .search-panel__button-show-form {
+            max-width: 0;
+
+        }
+        .search-panel__form {
+            max-width: 215px;
+        }
+    }
+}
+
+
+.button {
+    background: $color-turquoise;
+    color: $color-light-gray;
+    border: none;
+    outline: none;
+
+    &_transparent {
+        background: none;
+        border: none;
+    }
+    &_color_dark-gray {
+        color: $color-dark-gray;
+    }
+
 }

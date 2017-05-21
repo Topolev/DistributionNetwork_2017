@@ -43,6 +43,15 @@ public class CacheConfiguration {
             cm.createCache(com.distributionnetwork.app.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(com.distributionnetwork.app.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             cm.createCache(com.distributionnetwork.app.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.Publication.class.getName(), jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.Publication.class.getName() + ".labels", jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.Publication.class.getName() + ".subCategories", jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.Category.class.getName(), jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.Category.class.getName() + ".subCategories", jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.SubCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.SubCategory.class.getName() + ".publications", jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.Label.class.getName(), jcacheConfiguration);
+            cm.createCache(com.distributionnetwork.app.domain.Label.class.getName() + ".publications", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
