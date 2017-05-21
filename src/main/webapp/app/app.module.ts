@@ -1,21 +1,15 @@
-import './vendor.ts';
-
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Ng2Webstorage } from 'ng2-webstorage';
-
-import { DistributionNetworkSharedModule, UserRouteAccessService } from './shared';
-import { DistributionNetworkHomeModule } from './home/home.module';
-import { DistributionNetworkAdminModule } from './admin/admin.module';
-import { DistributionNetworkAccountModule } from './account/account.module';
-import { DistributionNetworkEntityModule } from './entities/entity.module';
-
-import { LayoutRoutingModule } from './layouts';
-import { customHttpProvider } from './blocks/interceptor/http.provider';
-import { PaginationConfig } from './blocks/config/uib-pagination.config';
-
+import "./vendor.ts";
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {Ng2Webstorage} from "ng2-webstorage";
+import {DistributionNetworkSharedModule, UserRouteAccessService} from "./shared";
+import {DistributionNetworkHomeModule} from "./home/home.module";
+import {DistributionNetworkAdminModule} from "./admin/admin.module";
+import {DistributionNetworkAccountModule} from "./account/account.module";
+import {DistributionNetworkEntityModule} from "./entities/entity.module";
 import {
+    LayoutRoutingModule,
     JhiMainComponent,
     NavbarComponent,
     FooterComponent,
@@ -23,7 +17,10 @@ import {
     PageRibbonComponent,
     ActiveMenuDirective,
     ErrorComponent
-} from './layouts';
+} from "./layouts";
+import {customHttpProvider} from "./blocks/interceptor/http.provider";
+import {PaginationConfig} from "./blocks/config/uib-pagination.config";
+import {ToolsModule} from "./tools/tools.module";
 
 @NgModule({
     imports: [
@@ -35,7 +32,8 @@ import {
         DistributionNetworkHomeModule,
         DistributionNetworkAdminModule,
         DistributionNetworkAccountModule,
-        DistributionNetworkEntityModule
+        DistributionNetworkEntityModule,
+        ToolsModule
     ],
     declarations: [
         JhiMainComponent,
