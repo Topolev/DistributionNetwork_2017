@@ -8,7 +8,6 @@ import { DistributionNetworkLabelModule } from './label/label.module';
 
 @NgModule({
     imports: [
-        DistributionNetworkJUserModule,
         DistributionNetworkPublicationModule,
         DistributionNetworkCategoryModule,
         DistributionNetworkSubCategoryModule,

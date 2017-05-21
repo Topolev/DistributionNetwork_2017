@@ -23,7 +23,6 @@ export class PublicationDialogComponent implements OnInit {
 
     labels: Label[];
 
-    jusers: JUser[];
 
     subcategories: SubCategory[];
     constructor(
@@ -32,7 +31,6 @@ export class PublicationDialogComponent implements OnInit {
         private alertService: AlertService,
         private publicationService: PublicationService,
         private labelService: LabelService,
-        private jUserService: JUserService,
         private subCategoryService: SubCategoryService,
         private eventManager: EventManager
     ) {
@@ -44,8 +42,6 @@ export class PublicationDialogComponent implements OnInit {
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
         this.labelService.query().subscribe(
             (res: Response) => { this.labels = res.json(); }, (res: Response) => this.onError(res.json()));
-        this.jUserService.query().subscribe(
-            (res: Response) => { this.jusers = res.json(); }, (res: Response) => this.onError(res.json()));
         this.subCategoryService.query().subscribe(
             (res: Response) => { this.subcategories = res.json(); }, (res: Response) => this.onError(res.json()));
     }
@@ -90,9 +86,6 @@ export class PublicationDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackJUserById(index: number, item: JUser) {
-        return item.id;
-    }
 
     trackSubCategoryById(index: number, item: SubCategory) {
         return item.id;
