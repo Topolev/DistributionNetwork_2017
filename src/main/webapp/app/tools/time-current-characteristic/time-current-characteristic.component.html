@@ -1,1 +1,72 @@
-<p>Время токовы-характеристики</p>
+<div class="container">
+    <p>Время токовы-характеристики</p>
+    <div class="row">
+        <div class="col-md-6">
+            <coordinate-panel
+                [configPanel]="configPanel"
+                [curves]="curves"
+                [sectionsX]="sectionsX">
+            </coordinate-panel>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h1>Защитные характеристики</h1>
+                <button>Создать характеристику</button>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Наименование</th>
+                        <th>U, кВ</th>
+                        <th>Цвет</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--
+                    <tr *ngFor="let sectionX of sectionsX">
+                        <td><input type="text" class="form-control" [(ngModel)]='sectionX.label'></td>
+                        <td><input type="text" class="form-control" [(ngModel)]='sectionX.x' (keyup)="changeSectionX()">
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm" (click)="deleteSectionX(sectionX)">
+                                &#10005;</button>
+                        </td>
+                    </tr>-->
+                    </tbody>
+                </table>
+                <div> Для добавления среза по тока, нажмите соответсвующую кнопку</div>
+            </div>
+
+            <div>
+                <h1>Срезы по току</h1>
+                <button (click)="addSectionX()">Добавить срез</button>
+                <table *ngIf="sectionsX.length>0">
+                    <thead>
+                    <tr>
+                        <th>Наименование</th>
+                        <th>Ток, А</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let sectionX of sectionsX">
+                        <td><input type="text" class="form-control" [(ngModel)]='sectionX.label'></td>
+                        <td><input type="text" class="form-control" [(ngModel)]='sectionX.x' (keyup)="changeSectionX()">
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm" (click)="deleteSectionX(sectionX)">
+                                &#10005;</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="sectionsX.length===0"> Для добавления среза по тока, нажмите соответсвующую кнопку</div>
+            </div>
+        </div>
+
+    </div>
+    >
+
+
+</div>
