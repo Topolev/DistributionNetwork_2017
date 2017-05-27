@@ -14,12 +14,12 @@ import {VERSION, DEBUG_INFO_ENABLED} from '../../app.constants';
     styleUrls: [
         'navbar.scss'
     ],
-    animations:[
-        trigger("search",[
+    animations: [
+        trigger("search", [
             state('hidden', style({width: 0, overflow: 'hidden'})),
             state('show', style({width: '100%'})),
-            state('hidden-loop', style({width:'0', overflow: 'hidden'})),
-            state('show-loop', style({width:'auto'})),
+            state('hidden-loop', style({width: '0', overflow: 'hidden'})),
+            state('show-loop', style({width: 'auto'})),
             transition('* => *', animate('1000ms ease-in-out')),
         ])
     ]

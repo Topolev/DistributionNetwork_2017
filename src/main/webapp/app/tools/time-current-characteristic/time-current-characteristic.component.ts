@@ -3,34 +3,74 @@ import {ConfigCoordinatePanel, defaultConfig} from "./coordinat-panel/classes/Co
 import Curve from "./coordinat-panel/curves/Curve";
 import {BuilderCurves} from "./coordinat-panel/curves/BuilderCurves";
 import {SectionX} from "./coordinat-panel/classes/SectionX";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Characteristic} from "./coordinat-panel/characteristic/Characteristic";
+import {CharacteristicComponent} from "./modals/characteristic.component";
+import {CharacteristicService} from "./modals/characteristic.service";
+import {defaultFusePointTemplates} from "./coordinat-panel/classes/PointsTemplate";
 
 @Component({
     selector: 'time-current-characteristic',
-    templateUrl: './time-current-characteristic.component.html'
+    templateUrl: './time-current-characteristic.component.html',
+    styleUrls: ['./time-current-characteristic.component.scss']
 })
-export default class TimeCurrentCharacteristicComponent{
+export default class TimeCurrentCharacteristicComponent {
 
-    configPanel : ConfigCoordinatePanel;
-    curves: Array<Curve> = [];
+    configPanel: ConfigCoordinatePanel;
+    characteristics: Array<Characteristic> = [];
     sectionsX: Array<SectionX> = [];
 
     builder: BuilderCurves = new BuilderCurves();
 
-    constructor(){
+    constructor(private modalService: NgbModal,
+                private characteristicService: CharacteristicService) {
+
+
         this.configPanel = defaultConfig;
 
-        this.curves.push(this.builder.buildCurve("POINTSABS"));
-        this.curves.push(this.builder.buildCurve("POINTSRELATIVE"));
-        this.curves.push(this.builder.buildCurve("EXPRESSION"));
+
+        this.characteristicService.newCharacteristic$.subscribe(
+            characteristic => {
+                this.setCharacteristic(characteristic);
+            }
+        )
+
+
     }
 
-    addSectionX(){
+    setCharacteristic(characteristic: Characteristic){
+        var isExistCharacrteristic = this.characteristics.some(existCharacteristic => existCharacteristic.id === characteristic.id);
+        if (isExistCharacrteristic){
+            this.characteristics.map(existCharacteristic =>
+                existCharacteristic => existCharacteristic.id === characteristic.id ?
+                characteristic : existCharacteristic
+            );
+        } else{
+            this.characteristics = this.characteristics.concat(characteristic);
+        }
+
+        console.log(this.characteristics);
+    }
+
+    deleteCharacteristic(characteristic: Characteristic){
+        this.characteristics = this.characteristics.filter(existCharacteristic => characteristic.id != existCharacteristic.id);
+    }
+
+
+    addSectionX() {
         this.sectionsX = this.sectionsX.concat(new SectionX());
     }
-    deleteSectionX(sectionX: SectionX){
-        this.sectionsX = this.sectionsX.filter(x => x!= sectionX);
+
+    deleteSectionX(sectionX: SectionX) {
+        this.sectionsX = this.sectionsX.filter((x) => x !== sectionX);
     }
-    changeSectionX(){
+
+    changeSectionX() {
         this.sectionsX = this.sectionsX.concat();
+    }
+
+    openModalCreateOrEditCharacteristic(characterisctic: Characteristic) {
+        this.modalService.open(CharacteristicComponent, {windowClass: 'modal-create-new-graph'});
+        this.characteristicService.setCurrentCharacteristic(characterisctic);
     }
 }

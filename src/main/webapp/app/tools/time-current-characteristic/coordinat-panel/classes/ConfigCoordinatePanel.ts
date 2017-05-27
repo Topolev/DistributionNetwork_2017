@@ -10,7 +10,6 @@ export class ConfigCoordinatePanel {
     xDivisionLog: number;
     yDivisionLog: number;
 
-
     maxNumberWithinX: number;
     maxNumberWithinY: number;
 
@@ -35,9 +34,8 @@ export const defaultConfig: ConfigCoordinatePanel = {
     xInitPxPerDivision: 100,
     yInitPxPerDivision: 100,
 
-    xDivisionLog: -1,
-    yDivisionLog: -1,
-
+    xDivisionLog: 0,
+    yDivisionLog: -2,
 
     maxNumberWithinX: 12,
     maxNumberWithinY: 20,
@@ -45,12 +43,12 @@ export const defaultConfig: ConfigCoordinatePanel = {
     marginX: 50,
     marginY: 50,
 
-    colorMainAxis: "red",
-    colorIntermediateAxis: "rgba(0,0,0,0.1)",
-    font: "14px Arial",
+    colorMainAxis: '#000000',
+    colorIntermediateAxis: 'rgba(0,0,0,0.1)',
+    font: '14px Arial',
 
     choosenVoltage: undefined,
 
     width: 500,
     height: 500
-}
+};

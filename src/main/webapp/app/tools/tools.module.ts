@@ -6,6 +6,8 @@ import TimeCurrentCharacteristicComponent from "./time-current-characteristic/ti
 import CoordinatePanelComponent from "./time-current-characteristic/coordinat-panel/coordinate-panel.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {TimeCurrentCharacteristicModule} from "./time-current-characteristic/time-current-characteristic.module";
 
 const TOOLS_STATES = [
     ...toolsRoute
@@ -15,16 +17,14 @@ const TOOLS_STATES = [
     imports: [
         CommonModule,
         FormsModule,
+        NgbModule,
+        TimeCurrentCharacteristicModule,
         RouterModule.forRoot(TOOLS_STATES, { useHash: true })
     ],
     declarations: [
-        TimeCurrentCharacteristicComponent,
-        CoordinatePanelComponent,
         ToolsComponent
     ],
     entryComponents: [
-        TimeCurrentCharacteristicComponent,
-        CoordinatePanelComponent,
         ToolsComponent
     ],
     providers: [],

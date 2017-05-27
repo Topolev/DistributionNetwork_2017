@@ -27,7 +27,7 @@ export class CurveTemplate {
 
 
 
-export const defaultStageTemplates: CurveTemplate[] = [
+export const defaultCurveTemplates: CurveTemplate[] = [
   {
     id: 0,
     label: "По точкам (абсолютные значение)",

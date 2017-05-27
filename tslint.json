@@ -5,7 +5,7 @@
     "rules": {
         "class-name": true,
         "comment-format": [
-            true,
+            false,
             "check-space"
         ],
         "curly": true,
@@ -58,7 +58,7 @@
             "check-whitespace"
         ],
         "quotemark": [
-            true,
+            false,
             "single"
         ],
         "radix": true,
@@ -88,16 +88,16 @@
             "check-separator",
             "check-type"
         ],
-        "prefer-const": true,
+        "prefer-const": false,
         "arrow-parens": [true],
         "arrow-return-shorthand": [true],
         "import-spacing": true,
-        "no-consecutive-blank-lines": [true],
+        "no-consecutive-blank-lines": [false],
         "object-literal-shorthand": true,
         "space-before-function-paren": [true, "never"],
 
-        "directive-selector": [true, "attribute", "jhi", "camelCase"],
-        "component-selector": [true, "element", "jhi", "kebab-case"],
+        "directive-selector": [true, "attribute", "camelCase"],
+        "component-selector": [true, "element", "kebab-case"],
         "use-input-property-decorator": true,
         "use-output-property-decorator": true,
         "use-host-property-decorator": true,

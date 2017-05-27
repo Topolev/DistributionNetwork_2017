@@ -6,8 +6,7 @@ import {Component} from '@angular/core';
     styleUrls: [
         'tools.scss'
     ]
-
 })
-export default class ToolsComponent{
+export default class ToolsComponent {
 
 }
