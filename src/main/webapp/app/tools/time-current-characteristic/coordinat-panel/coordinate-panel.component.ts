@@ -136,7 +136,10 @@ export default class CoordinatePanelComponent implements AfterViewInit, OnChange
         var conf = this.config;
         util.clearCanvas(this.ctxCurves, conf.width, conf.height);
         for (let characteristic of this.characteristics){
-            this.drawCurves(characteristic.curves);
+            console.log(characteristic.visable);
+            if (characteristic.visable){
+                this.drawCurves(characteristic.curves);
+            }
         }
     }
 

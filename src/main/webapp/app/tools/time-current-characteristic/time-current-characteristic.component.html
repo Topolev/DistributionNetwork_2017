@@ -46,10 +46,12 @@
                                 <input type="checkbox"
                                        class="setup-block__visable-input"
                                        [attr.id]="'visable_' + characteristic.id"
-                                       [(ngModel)]="characteristic.visable"/>
+                                       [(ngModel)]="characteristic.visable"
+                                       (click) = "changeVisable(characteristic)"/>
                                 <label class="setup-block__visable-label"
                                        [attr.for]="'visable_' + characteristic.id">
                                 </label>
+
                             </td>
                             <td>
                                 <button type="button" class="btn btn-secondary btn-sm"

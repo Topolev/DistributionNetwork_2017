@@ -39,7 +39,7 @@ export default class TimeCurrentCharacteristicComponent {
     }
 
     setCharacteristic(characteristic: Characteristic){
-        var isExistCharacrteristic = this.characteristics.some(existCharacteristic => existCharacteristic.id === characteristic.id);
+        let isExistCharacrteristic = this.characteristics.some(existCharacteristic => existCharacteristic.id === characteristic.id);
         if (isExistCharacrteristic){
             this.characteristics.map(existCharacteristic =>
                 existCharacteristic => existCharacteristic.id === characteristic.id ?
@@ -48,8 +48,15 @@ export default class TimeCurrentCharacteristicComponent {
         } else{
             this.characteristics = this.characteristics.concat(characteristic);
         }
+    }
 
-        console.log(this.characteristics);
+    changeVisable(characteristic: Characteristic){
+        characteristic.visable = !characteristic.visable;
+        this.updateCharacteristic();
+    }
+
+    updateCharacteristic(){
+        this.characteristics = this.characteristics.concat();
     }
 
     deleteCharacteristic(characteristic: Characteristic){
