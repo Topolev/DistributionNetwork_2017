@@ -13,7 +13,7 @@ export default class ExpressionCurve extends Curve {
         super();
     }
 
-    public draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel) {
+    public draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel, color: string) {
 
         const step = 1;
 
@@ -24,7 +24,7 @@ export default class ExpressionCurve extends Curve {
         for (let i = xPrevOrigin + step; i < xEnd; i += step) {
             util.drawLine(ctx,
                 +util.xOriginToFactLog(xPrevOrigin, config), util.yOriginToFactLog(yPrevOrigin, config),
-                util.xOriginToFactLog((xPrevOrigin + step), config), util.yOriginToFactLog(+this.fn(xPrevOrigin + step), config), 'red');
+                util.xOriginToFactLog((xPrevOrigin + step), config), util.yOriginToFactLog(+this.fn(xPrevOrigin + step), config), color);
 
             xPrevOrigin += step;
             yPrevOrigin = +this.fn(xPrevOrigin);

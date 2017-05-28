@@ -38,6 +38,7 @@ export default class CoordinatePanelComponent implements AfterViewInit, OnChange
             }
 
             if (changes.characteristics){
+                console.log("Rerender")
                 this.drawCharacteristics();
             }
         }
@@ -126,9 +127,9 @@ export default class CoordinatePanelComponent implements AfterViewInit, OnChange
         }
     }
 
-    private drawCurves(curves: Array<Curve>) {
+    private drawCurves(curves: Array<Curve>, color: string) {
         for (let curve of curves) {
-            curve.draw(this.ctxCurves, this.config);
+            curve.draw(this.ctxCurves, this.config, color);
         }
     }
 
@@ -136,9 +137,8 @@ export default class CoordinatePanelComponent implements AfterViewInit, OnChange
         var conf = this.config;
         util.clearCanvas(this.ctxCurves, conf.width, conf.height);
         for (let characteristic of this.characteristics){
-            console.log(characteristic.visable);
             if (characteristic.visable){
-                this.drawCurves(characteristic.curves);
+                this.drawCurves(characteristic.curves, characteristic.color);
             }
         }
     }

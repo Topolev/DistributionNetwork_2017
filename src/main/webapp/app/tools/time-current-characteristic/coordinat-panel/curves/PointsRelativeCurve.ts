@@ -13,13 +13,13 @@ export default class PointsRelativeCurve extends Curve{
         super();
     }
 
-    public draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel) {
+    public draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel, color: string) {
 
         let pointPrev = this.points[0];
         for (let i = 1; i < this.points.length; i++) {
             util.drawLine(ctx,
                 util.xOriginToFactLog(+pointPrev.x * this.baseValue , config), util.yOriginToFactLog(+pointPrev.y, config),
-                util.xOriginToFactLog(+this.points[i].x * this.baseValue, config), util.yOriginToFactLog(+this.points[i].y, config), 'red');
+                util.xOriginToFactLog(+this.points[i].x * this.baseValue, config), util.yOriginToFactLog(+this.points[i].y, config), color);
             pointPrev = this.points[i];
         }
     }

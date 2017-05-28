@@ -13,7 +13,7 @@ export default class IndependentCurve extends Curve {
         super();
     }
 
-    draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel) {
+    draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel, color: string) {
 
         const tsz = +this.variables['tsz'];
         const Isz = +this.variables['Isz'];
@@ -23,11 +23,11 @@ export default class IndependentCurve extends Curve {
 
         util.drawLine(ctx,
             +util.xOriginToFactLog(Isz, config), util.yOriginToFactLog(yTop, config),
-            +util.xOriginToFactLog(Isz, config), util.yOriginToFactLog(tsz, config), 'red');
+            +util.xOriginToFactLog(Isz, config), util.yOriginToFactLog(tsz, config), color);
 
         util.drawLine(ctx,
             +util.xOriginToFactLog(Isz, config), +util.yOriginToFactLog(tsz, config),
-            +util.xOriginToFactLog(xRight, config), +util.yOriginToFactLog(tsz, config), 'red');
+            +util.xOriginToFactLog(xRight, config), +util.yOriginToFactLog(tsz, config), color);
     }
 
     drawHorizontalLine(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel, xOrigin: number) {

@@ -5,7 +5,7 @@ import {CurveTemplate} from './CurveTemplate';
 export default class Curve {
     curveTemplate: CurveTemplate;
 
-    public draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel) {
+    public draw(ctx: CanvasRenderingContext2D, config: ConfigCoordinatePanel, color: string) {
         console.log('This method will have to be overrided in class inheritor');
     }
 

@@ -18,7 +18,7 @@ declare var jQuery: any;
   templateUrl: './characteristic.component.html',
   styleUrls: ['./characteristic.component.css']
 })
-export class CharacteristicComponent implements AfterViewInit, OnInit {
+export class CharacteristicComponent implements  OnInit {
 
 
   /*
@@ -32,13 +32,11 @@ export class CharacteristicComponent implements AfterViewInit, OnInit {
   builderCurves: BuilderCurves = new BuilderCurves();
 
 
-  //grid: CoordinatePlane = null;
   config: ConfigCoordinatePanel;
   isEditMode: boolean;
   voltageSteps: Array<{value: number}> = defaultVoltageSteps;
 
   typeProtection: TYPE_PROTECTION;
-  // Default characteristics for fuse which is assigned as PointAbsStage
 
 
   constructor(private modalService: NgbModal,
@@ -65,10 +63,7 @@ export class CharacteristicComponent implements AfterViewInit, OnInit {
     this.activeModal.close();
   }
 
-  ngAfterViewInit(): void {
-    //this.grid = new CoordinatePlane(this.canvas.nativeElement, this.canvasBack.nativeElement, this.config);
-    //this.grid.updateAllCharacteristic([this.characteristic]);
-  }
+
 
  /* private deleteStage(stage: Stage) {
     this.characteristic.stages.splice(this.characteristic.stages.indexOf(stage), 1);

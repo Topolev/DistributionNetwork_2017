@@ -24,18 +24,13 @@ export default class TimeCurrentCharacteristicComponent {
 
     constructor(private modalService: NgbModal,
                 private characteristicService: CharacteristicService) {
-
-
         this.configPanel = defaultConfig;
-
-
         this.characteristicService.newCharacteristic$.subscribe(
             characteristic => {
+                console.log("new/edited characteristic");
                 this.setCharacteristic(characteristic);
             }
         )
-
-
     }
 
     setCharacteristic(characteristic: Characteristic){
@@ -45,6 +40,7 @@ export default class TimeCurrentCharacteristicComponent {
                 existCharacteristic => existCharacteristic.id === characteristic.id ?
                 characteristic : existCharacteristic
             );
+            this.characteristics = this.characteristics.concat();
         } else{
             this.characteristics = this.characteristics.concat(characteristic);
         }
@@ -76,8 +72,11 @@ export default class TimeCurrentCharacteristicComponent {
         this.sectionsX = this.sectionsX.concat();
     }
 
-    openModalCreateOrEditCharacteristic(characterisctic: Characteristic) {
+    openModalCreateOrEditCharacteristic(characteristic: Characteristic) {
         this.modalService.open(CharacteristicComponent, {windowClass: 'modal-create-new-graph'});
-        this.characteristicService.setCurrentCharacteristic(characterisctic);
+        /*if (characteristic != null){
+            characteristic = JSON.parse(JSON.stringify(characteristic));
+        }*/
+        this.characteristicService.setCurrentCharacteristic(characteristic);
     }
 }
